@@ -1,10 +1,12 @@
-package com.example.clazz.parser;
+package com.edfeff.clazz.parser;
 
-import com.example.clazz.parser.access.*;
-import com.example.clazz.parser.constant.*;
-import com.example.clazz.parser.attribute.AttributeInfo;
-import com.example.clazz.parser.field.FieldInfo;
-import com.example.clazz.parser.method.MethodInfo;
+import com.edfeff.clazz.parser.access.ClazzAccessFlag;
+import com.edfeff.clazz.parser.attribute.AttributeInfo;
+import com.edfeff.clazz.parser.constant.*;
+import com.edfeff.clazz.parser.field.FieldInfo;
+import com.edfeff.clazz.parser.method.MethodInfo;
+import com.edfeff.clazz.parser.access.*;
+import com.edfeff.clazz.parser.constant.*;
 
 import java.io.*;
 import java.util.ArrayList;

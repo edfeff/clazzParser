@@ -1,7 +1,7 @@
-package com.example.clazz.parser.field;
+package com.edfeff.clazz.parser.field;
 
-import com.example.clazz.parser.access.FieldAccessFlag;
-import com.example.clazz.parser.attribute.AttributeInfo;
+import com.edfeff.clazz.parser.access.FieldAccessFlag;
+import com.edfeff.clazz.parser.attribute.AttributeInfo;
 
 import java.util.ArrayList;
 import java.util.List;

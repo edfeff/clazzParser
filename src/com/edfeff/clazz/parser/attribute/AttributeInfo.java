@@ -1,4 +1,4 @@
-package com.example.clazz.parser.attribute;
+package com.edfeff.clazz.parser.attribute;
 
 /**
  * 属性类

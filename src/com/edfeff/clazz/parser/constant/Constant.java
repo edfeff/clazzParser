@@ -1,4 +1,4 @@
-package com.example.clazz.parser.constant;
+package com.edfeff.clazz.parser.constant;
 
 /**
  * 常量池 基础抽象类

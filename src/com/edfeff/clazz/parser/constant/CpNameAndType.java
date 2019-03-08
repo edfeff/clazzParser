@@ -1,4 +1,4 @@
-package com.example.clazz.parser.constant;
+package com.edfeff.clazz.parser.constant;
 
 /**
  * 常量池
@@ -12,7 +12,7 @@ public class CpNameAndType extends Constant {
     private short descriptorIndex;
 
     public CpNameAndType(short nameIndex, short descriptorIndex) {
-        this.tag = Constant.CONSTANT_NAMEANDTYPE;
+        this.tag = CONSTANT_NAMEANDTYPE;
         this.nameIndex = nameIndex;
         this.descriptorIndex = descriptorIndex;
     }

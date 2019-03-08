@@ -1,4 +1,4 @@
-package com.example.clazz.parser.constant;
+package com.edfeff.clazz.parser.constant;
 
 import java.nio.charset.Charset;
 
@@ -15,7 +15,7 @@ public class CpUtf8 extends Constant {
     private String value;
 
     public CpUtf8(short length, byte[] bytes) {
-        this.tag = Constant.CONSTANT_UTF8;
+        this.tag = CONSTANT_UTF8;
         this.length = length;
         this.bytes = bytes;
         this.value = new String(bytes, Charset.forName("utf-8"));

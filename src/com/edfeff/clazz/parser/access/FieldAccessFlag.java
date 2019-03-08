@@ -1,4 +1,4 @@
-package com.example.clazz.parser.access;
+package com.edfeff.clazz.parser.access;
 
 /**
  * 字段 访问控制标识枚举
