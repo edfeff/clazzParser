@@ -27,4 +27,5 @@ public abstract class Constant {
     public final static byte CONSTANT_METHODHANDLE = 15;
     public final static byte CONSTANT_METHODTYPE = 16;
     public final static byte CONSTANT_INVOKEDYNAMIC = 18;
+
 }

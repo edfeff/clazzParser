@@ -25,10 +25,6 @@ public class CpUtf8 extends Constant {
         return length;
     }
 
-    public byte[] getBytes() {
-        return bytes;
-    }
-
     public String getValue() {
         return value;
     }

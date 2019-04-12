@@ -79,6 +79,11 @@ public class ClazzFileParser {
             data = new DataInputStream(new FileInputStream(fileName));
             //解析
             parser();
+            for (int i = 0; i < constantPool.size(); i++) {
+                System.out.println((i + 1) + "  " + constantPool.get(i));
+            }
+            getClazz();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -93,6 +98,10 @@ public class ClazzFileParser {
      */
     public Clazz getClazz() {
 //        TODO
+//        accessFlags.stream().forEach(System.out::println);
+//        interfaces.stream().forEach(System.out::println);
+        fieldInfos.stream().forEach(System.out::println);
+
         return null;
     }
 
@@ -127,7 +136,6 @@ public class ClazzFileParser {
             for (int j = 0; j < attributeCount; j++) {
                 short attributeNameIndex = data.readShort();
                 int attributeLength = data.readInt();
-                System.out.println(attributeLength);
                 byte[] info = new byte[attributeLength];
                 data.read(info);
                 attributeInfos.add(new AttributeInfo(attributeNameIndex, attributeLength, info));
@@ -142,7 +150,6 @@ public class ClazzFileParser {
      */
     private void parserMethods() throws IOException {
         methodCount = data.readShort();
-        System.out.println(methodCount);
         for (int i = 0; i < methodCount; i++) {
             short accessFlag = data.readShort();
             short nameIndex = data.readShort();
@@ -179,7 +186,7 @@ public class ClazzFileParser {
             short nameIndex = data.readShort();
             short descriptorIndex = data.readShort();
             short attributesCount = data.readShort();
-            FieldInfo fieldInfo = new FieldInfo(accessFlag, nameIndex, descriptorIndex, attributesCount);
+            FieldInfo fieldInfo = new FieldInfo(accessFlag, nameIndex, descriptorIndex, attributesCount, constantPool);
             if (attributesCount > 0) {
                 for (int j = 0; j < attributesCount; j++) {
                     short attributeNameIndex = data.readShort();
