@@ -5,8 +5,7 @@ import com.edfeff.clazz.parser.attribute.AttributeInfo;
 import com.edfeff.clazz.parser.constant.*;
 import com.edfeff.clazz.parser.field.FieldInfo;
 import com.edfeff.clazz.parser.method.MethodInfo;
-import com.edfeff.clazz.parser.access.*;
-import com.edfeff.clazz.parser.constant.*;
+import com.edfeff.clazz.parser.support.ClassDataStream;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,15 +19,11 @@ import java.util.List;
  */
 public class ClazzFileParser {
 
-    public static void main(String[] args) throws IOException {
-        ClazzFileParser parser = new ClazzFileParser("D:\\study\\java\\test\\netty\\001\\netty4\\out\\production\\netty4\\com\\example\\discard\\client\\DiscardClient.class");
-    }
-
+    ClassDataStream classDataStream = null;
     //class文件名
     private String fileName = null;
     //class文件流
     private DataInputStream data = null;
-
     //魔数
     private int magic;
     //小版本号
@@ -62,33 +57,21 @@ public class ClazzFileParser {
     //此类的属性
     private List<AttributeInfo> attributeInfos;
 
+    public ClazzFileParser(ClassDataStream classDataStream) throws IOException {
+        this.classDataStream = classDataStream;
+        this.fileName = classDataStream.getName();
+        this.data = classDataStream.getDataInputStream();
+        init();
+        parser();
+    }
 
-    public ClazzFileParser(String fileName) {
-
-        this.fileName = fileName;
-
+    private void init() {
         constantPool = new ArrayList<>();
         accessFlags = new ArrayList<>();
         interfaces = new ArrayList<>();
         fieldInfos = new ArrayList<>();
         methodInfos = new ArrayList<>();
         attributeInfos = new ArrayList<>();
-
-        try {
-            //读文件
-            data = new DataInputStream(new FileInputStream(fileName));
-            //解析
-            parser();
-            for (int i = 0; i < constantPool.size(); i++) {
-                System.out.println((i + 1) + "  " + constantPool.get(i));
-            }
-            getClazz();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
